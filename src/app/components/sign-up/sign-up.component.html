@@ -1,5 +1,5 @@
 <app-header></app-header>
-<div class="center ">
+<div class="center app ">
 <form class="card  w-50 m-5"  >
   <h3 class="center m-3">Sign Up</h3>
 
@@ -37,7 +37,20 @@
     required 
     />
   </div>
- 
+  <div class="m-3">
+    <label>Type: </label>
+    <br> 
+    <select
+    class="form-control"
+      name="Type"
+      id="type"
+      placeholder="choose type"
+    >
+      <option value="none">..</option>
+      <option value="client">Client</option>
+      <option value="provider">Provider</option>
+    </select>
+  </div>
 
   <div class="d-grid m-3  center">
     <button type="submit" class="btn btn-success" (click)="authService.SignUp(userEmail.value, userPwd.value)">

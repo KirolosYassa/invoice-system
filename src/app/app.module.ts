@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +17,16 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
+import { HeaderComponent } from '../Template/header/header.component';
+import { FooterComponent } from '../Template/footer/footer.component';
+import { MenuClientComponent } from '../Template/menu-client/menu-client.component';
+import { MenuProviderComponent } from '../Template/menu-provider/menu-provider.component';
+import { ClientHomeComponent } from './components/client-home/client-home.component';
+import { ClientBillsComponent } from './components/client-bills/client-bills.component';
+import { ClientProfileComponent } from './components/client-profile/client-profile.component';
+import { ProviderProfileComponent } from './components/provider-profile/provider-profile.component';
+import { ProviderAddBundleComponent } from './components/provider-add-bundle/provider-add-bundle.component';
+import { ProviderHomeComponent } from './components/provider-home/provider-home.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +38,14 @@ import { FooterComponent } from './components/footer/footer.component';
     VerifyEmailComponent,
     HeaderComponent,
     FooterComponent,
+    MenuClientComponent,
+    MenuProviderComponent,
+    ClientHomeComponent,
+    ClientBillsComponent,
+    ClientProfileComponent,
+    ProviderProfileComponent,
+    ProviderAddBundleComponent,
+    ProviderHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,8 +55,11 @@ import { FooterComponent } from './components/footer/footer.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    FormsModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  title = "Billing System "
+}
