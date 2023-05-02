@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./provider-home.component.scss']
 })
 export class ProviderHomeComponent {
-
+ providerName:string="Provider Khaled";
 }

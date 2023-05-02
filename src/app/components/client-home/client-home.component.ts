@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./client-home.component.scss']
 })
 export class ClientHomeComponent {
-
+clientName:string="Client Mai";
 }
