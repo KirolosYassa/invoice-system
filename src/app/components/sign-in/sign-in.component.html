@@ -3,21 +3,30 @@
   <div class="displayTableCell card  w-50 m-5">
     <div class="authBlock">
       <h3 class="center m-3">Sign In</h3>
-      <div class=" formGroup m-3">
+      <form  [formGroup]="SignInForm" (ngSubmit)="onSubmit(SignInForm)" #userForm >
+      <div class=" formGroup m-3"  >
         <label>E-Mail: </label>
-        <input type="text" class="form-control" placeholder="Enter your Email"  #userName
-        required
+        <input type="text" formControlName="email" ngModel class="form-control" placeholder="Enter your Email"  #userName
         />
+        <div
+      *ngIf="SignInForm.get('email')?.invalid && (SignInForm.get('email')?.dirty || SignInForm.get('email')?.touched)"
+    >
+      <span style="color:red"> Please, provide a Valid Email.</span>
+    </div>
       </div>
       <div class=" formGroup m-3">
         <label>Password: </label>
-        <input type="password" class="form-control" placeholder="Enter your Email" #userPassword
-        required
+        <input type="password"  formControlName="password" ngModel class="form-control" placeholder="Enter your Email" #userPassword
         />
+        <div
+        *ngIf="SignInForm.get('password')?.invalid && (SignInForm.get('password')?.dirty || SignInForm.get('password')?.touched)"
+      >
+        <span style="color:red"> Please, provide a Password.</span>
+      </div>
       </div>
       <!-- Calling SignIn Api from AuthService -->
       <div class=" formGroup d-grid center m-3 ">
-        <button type="submit" class="btn btn-success" (click)="authService.SignIn(userName.value, userPassword.value)">
+        <button type="submit"  class="btn btn-success" (click)="authService.SignIn(userName.value, userPassword.value)">
           Login 
         </button>
       </div>
@@ -27,7 +36,7 @@
       </div>
 
       <div class="formGroup d-grid   center">
-        <button type="submit" class="btn btn-success" (click)="authService.GoogleAuth()">
+        <button type="submit" [disabled]="!SignInForm.valid" class="btn btn-success" (click)="authService.GoogleAuth()">
           Log in with Google
         </button>
       </div>
@@ -45,7 +54,7 @@
         >
       </div>
       <!-- Calling GoogleAuth Api from AuthService -->
-      
+    </form>
   </div>
 </div>
 </div>
