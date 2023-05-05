@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,8 +17,8 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/verify-email/verify-email.component';
 import { AuthService } from './shared/services/auth.service';
-import { HeaderComponent } from './components/template/header/header.component';
-import { FooterComponent } from './components/template/footer/footer.component';
+// import { HeaderComponent } from './components/header/header.component';
+// import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,14 @@ import { FooterComponent } from './components/template/footer/footer.component';
     VerifyEmailComponent,
     HeaderComponent,
     FooterComponent,
+    MenuClientComponent,
+    MenuProviderComponent,
+    ClientHomeComponent,
+    ClientBillsComponent,
+    ClientProfileComponent,
+    ProviderProfileComponent,
+    ProviderAddBundleComponent,
+    ProviderHomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,8 +47,12 @@ import { FooterComponent } from './components/template/footer/footer.component';
     AngularFirestoreModule,
     AngularFireStorageModule,
     AngularFireDatabaseModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
   providers: [AuthService],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  title = 'Billing System ';
+}
